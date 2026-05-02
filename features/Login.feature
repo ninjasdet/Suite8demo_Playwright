@@ -17,7 +17,7 @@ Feature: Login page
    @login_withemptyfields
    Scenario: Login validations with Invalid data
     When the user clicks on Loginbutton without entering username and password
-    Then the user should able to see error_message "Missing required field." under usernametextbox and passwordtextbox
+    Then the user should able to see errormessage "Missing required field." under usernametextbox and passwordtextbox
     
     @login_usernameEmptyPassword
     Scenario: Login validations with username and without password
