@@ -1,6 +1,6 @@
 const { Given } = require('@cucumber/cucumber');
 const LoginPage = require('../../pages/Contacts/ContactLoginPage.js');
-const TestData = require('../../data/testdata.js');
+const TestData = require('../../data/testdata.json');
 
 Given('the user is logged into the application and on the home page', async function () {
     console.log('Executing shared login step');

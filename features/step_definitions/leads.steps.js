@@ -5,7 +5,7 @@ const LeadsPage = require('../../pages/Leads/LeadsPage.js');
 const CreateLeadPage = require('../../pages/Leads/CreateLeadPage.js');
 const ImportVCardLeadPage = require('../../pages/Leads/ImportVCardLeadPage.js');
 const ImportLeadsPage = require('../../pages/Leads/ImportLeadsPage.js');
-const TestData = require('../../data/testdata.js');
+const TestData = require('../../data/testdata.json');
 const { generateVCard, randomNameString, writeEmptyFile, writeCsvTest } = require('../../utils/helper.js');
 
 setDefaultTimeout(60 * 1000);

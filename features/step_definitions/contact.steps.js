@@ -7,7 +7,7 @@ const ImportVCardPage = require('../../pages/Contacts/ImportVCardContactPage.js'
 const ImportContactsPage = require('../../pages/Contacts/ImportContactPage.js');
 
 
-const ContactData = require('../../data/testdata.js');
+const TestData = require('../../data/testdata.json');
 const { generateVCard, randomNameString, writeEmptyFile, writeCsvTest } = require('../../utils/helper.js');
 
 setDefaultTimeout(60 * 1000);
@@ -32,12 +32,12 @@ When('the user fills in all the required contact details on the Create Contact p
 
     await this.contacts.clickCreateContact();
     await this.create.fillBasicInfo(
-        ContactData.firstName,
-        ContactData.lastName,
-        ContactData.mobile,
-        ContactData.phone,
-        ContactData.department,
-        ContactData.email
+        TestData.firstName,
+        TestData.lastName,
+        TestData.mobile,
+        TestData.phone,
+        TestData.department,
+        TestData.email
     );
 });
 
@@ -47,15 +47,15 @@ When('the user fills in the contact details but leaves the required field {strin
 
     await this.contacts.clickCreateContact();
     // Leave Last Name empty if specified
-    const lastName = missingField === 'Last Name' ? '' : ContactData.lastName;
+    const lastName = missingField === 'Last Name' ? '' : TestData.lastName;
 
     await this.create.fillBasicInfo(
-        ContactData.firstName,
+        TestData.firstName,
         lastName,
-        ContactData.mobile,
-        ContactData.phone,
-        ContactData.department,
-        ContactData.email
+        TestData.mobile,
+        TestData.phone,
+        TestData.department,
+        TestData.email
     );
 }
 );
@@ -84,10 +84,10 @@ When('the user uploads a valid vCard file on the Import vCard page', async funct
 
     // Generate a vCard dynamically
     const vcardPath = generateVCard(
-        ContactData.firstName,
-        ContactData.lastName,
-        ContactData.email,
-        ContactData.mobile
+        TestData.firstName,
+        TestData.lastName,
+        TestData.email,
+        TestData.mobile
     );
 
     // Upload the vCard file
@@ -119,7 +119,7 @@ When('the user clicks on the specific contact button on the view contacts page',
     await this.contacts.clickViewContacts();
 
     //await this.page.waitForURL(/\/contacts\/index\//, { timeout: 50000 });    
-    await this.contacts.openContact(ContactData.contactfullname);
+    await this.contacts.openContact(TestData.contactfullname);
 });
 
 /* -------------------------------
@@ -194,7 +194,7 @@ Then('the contact should be listed in the recently viewed menu', async function 
 
     await this.contacts.clickRecentlyViewedContact();
 
-    expect(await this.contacts.isNameVisible(ContactData.contactfullname)).toBeTruthy();
+    expect(await this.contacts.isNameVisible(TestData.contactfullname)).toBeTruthy();
 
 });
 
@@ -207,8 +207,8 @@ Then('the contact last name should be visible in the contact record page', async
     console.log('Executing step: the contact full name should be visible in the contact record page');
 
     const contactRecordName = (await this.page.locator('span.dynamic-label').innerText()).trim();
-    //expect(contactRecordName).toContain(ContactData.firstName);
-    expect(contactRecordName).toContain(ContactData.lastName);
+    //expect(contactRecordName).toContain(TestData.firstName);
+    expect(contactRecordName).toContain(TestData.lastName);
 });
 
 Then('the contact full name should be visible in the contact record page', async function () {
@@ -216,7 +216,7 @@ Then('the contact full name should be visible in the contact record page', async
     console.log('Executing step: the contact full name should be visible in the contact record page');
 
     const contactRecordName = (await this.page.locator('span.dynamic-label').innerText()).trim();
-    expect(contactRecordName).toContain(ContactData.contactfullname);
+    expect(contactRecordName).toContain(TestData.contactfullname);
 });
 
 Then('the user should see an error message indicating the missing required field',
