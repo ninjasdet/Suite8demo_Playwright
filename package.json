@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js",
+    "report:html": "node generate-html-report.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@cucumber/cucumber": "^12.8.2",
-    "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0",
+    "@cucumber/cucumber": "^12.9.0",
+    "@cucumber/html-formatter": "^23.1.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.6.0",    
+    "cucumber-html-reporter": "^7.2.0",
     "playwright-bdd": "^8.5.0"
   }
 }

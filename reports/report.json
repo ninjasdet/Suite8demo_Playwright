@@ -1,0 +1,1202 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contacts-page-validations;create-a-new-contact-with-all-required-fields",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Create a new contact with all required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 504060699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4325769900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "the user fills in all the required contact details on the Create Contact page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1598476499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the user clicks the Save button",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33662699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the new contact should be created successfully",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1255607199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the contact last name should be visible in the contact record page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:205"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 313419799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 378140499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 2
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;create-a-new-contact-with-missing-required-fields",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Create a new contact with missing required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 465097999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4919947799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "the user fills in the contact details but leaves the required field \"Last Name\" empty on the Create Contact page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1655964900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the user clicks the Save button",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 48216599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the user should see an error message indicating the missing required field",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:222"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11581399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the contact should not be created",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:232"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40942599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 247117399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;create-a-new-contact-by-importing-a-vcard",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Create a new contact by importing a vCard",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 476610899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4731732900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "the user uploads a valid vCard file on the Import vCard page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2521417599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the user clicks the \"Import vCard\" button",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45548900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the contact should be created successfully",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:105"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1376181100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the contact last name should be visible in the contact record page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:205"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3554800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 292246900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 18
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;view-contact-details",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "View Contact details",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 444223200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 28,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4204753499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "the user clicks on the specific contact button on the view contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:115"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2546512900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "the contact full name should be visible in the contact record page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:214"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 877825799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 268300799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 26
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;view-recently-viewed-contacts",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "View Recently Viewed Contacts",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 424406399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 34,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4222027499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 35,
+            "name": "the user clicks on the specific contact button on the view contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:115"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2505544099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "the contact should be listed in the recently viewed menu",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:191"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152150600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 271138999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 32
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;import-contacts-with-valid-file",
+        "keyword": "Scenario",
+        "line": 39,
+        "name": "Import Contacts with valid file",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 466362399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 40,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4538095099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 41,
+            "name": "the user uploads a valid file on the Import Contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:128"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3923487199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15306039899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 43,
+            "name": "the user should view the Import Results screen with new contact details",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:168"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1625967799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 244024099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 38
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contacts-page-validations;import-contacts-with-invalid-file",
+        "keyword": "Scenario",
+        "line": 46,
+        "name": "Import Contacts with invalid file",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 446848599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 47,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5834928599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 48,
+            "name": "the user uploads a invalid file on the Import Contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:155"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3066049800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 49,
+            "name": "the user should see the Invalid import file name Message",
+            "match": {
+              "location": "features\\step_definitions\\contact.steps.js:178"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5066162800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 203336299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 45
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contacts-page-validations",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Contacts page validations",
+    "tags": [],
+    "uri": "features\\Contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "leads-page-validations;create-new-lead-with-all-required-fields",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Create new Lead with all required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 439130799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5459800400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user fills in all the required lead details on the Create Lead page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1673807300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "the user clicks the Save button on the Create Lead page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64683199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the new Lead should be created successfully",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1199189100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the lead name should be visible in the lead record page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:229"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 288740200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 270908100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;create-a-new-lead-with-missing-required-fields",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Create a new Lead with missing required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 502028099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4700368100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "the user fills in the Lead details but leaves the required field \"Last Name\" empty on the Create Lead page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2608992199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the user clicks the Save button on the Create Lead page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 46095300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the user should see an error message indicating the missing required field on the Create Lead page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17267200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the lead should not be created",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28820999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 237298099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;create-a-new-lead-by-importing-a-vcard",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Create a new lead by importing a vCard",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 464822699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4289062899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "the user uploads a valid vCard file on the Import lead from vCard page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:94"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2468931400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the user clicks the \"Import vCard\" button on the Import lead from vCard page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:113"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54188900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "the lead should be created successfully",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:120"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1396042900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the lead name should be visible in the lead record page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:229"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2850699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 271743000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;view-lead-details",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "View Lead details",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 435431900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 29,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4253411299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "the user clicks on the specific lead button on the view leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:130"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 30100574199,
+              "error_message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.field-link').filter({ hasText: 'Lee Clausen' }).first()\u001b[22m\n\n    at LeadsPage.openLead (C:\\Users\\Adhithya\\Desktop\\Suite8demo\\Suite8demo_Playwright\\pages\\Leads\\LeadsPage.js:62:41)\n    at CustomWorld.<anonymous> (C:\\Users\\Adhithya\\Desktop\\Suite8demo\\Suite8demo_Playwright\\features\\step_definitions\\leads.steps.js:136:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "the lead full name should be visible in the lead record page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:140"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 282113400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 27
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;view-recently-viewed-leads",
+        "keyword": "Scenario",
+        "line": 34,
+        "name": "View Recently Viewed Leads",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 524735499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 35,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16092332699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "the user clicks on the specific lead button on the view leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:130"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 30099847899,
+              "error_message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.field-link').filter({ hasText: 'Lee Clausen' }).first()\u001b[22m\n\n    at LeadsPage.openLead (C:\\Users\\Adhithya\\Desktop\\Suite8demo\\Suite8demo_Playwright\\pages\\Leads\\LeadsPage.js:62:41)\n    at CustomWorld.<anonymous> (C:\\Users\\Adhithya\\Desktop\\Suite8demo\\Suite8demo_Playwright\\features\\step_definitions\\leads.steps.js:136:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 37,
+            "name": "the lead full name should be visible in the lead record page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:140"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 265132200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 33
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;import-lead-with-valid-file",
+        "keyword": "Scenario",
+        "line": 41,
+        "name": "Import Lead with valid file",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 514936599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 42,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5806044699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 43,
+            "name": "the user uploads a valid file on the Import Leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:166"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2912851899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button on the Import Leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:185"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15310142600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the user should view the Import Results screen with new lead details",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:206"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1903121699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 254413399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 40
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "leads-page-validations;import-lead-with-invalid-file",
+        "keyword": "Scenario",
+        "line": 48,
+        "name": "Import Lead with invalid file",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 552078399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 49,
+            "name": "the user is logged into the application and on the home page",
+            "match": {
+              "location": "features\\step_definitions\\common.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5199980999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "the user uploads a invalid file on the Import Leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:193"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3095458100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the user should see the Invalid import file name Message on the Import Leads page",
+            "match": {
+              "location": "features\\step_definitions\\leads.steps.js:216"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5066705400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 225829599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@leads",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "leads-page-validations",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Leads page validations",
+    "tags": [],
+    "uri": "features\\Leads.feature"
+  }
+]

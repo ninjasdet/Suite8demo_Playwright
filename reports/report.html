@@ -1,0 +1,72 @@
+
+<html>
+<head>
+<title>Cucumber Test Report</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body { 
+  font-family: Arial; 
+  padding: 20px; 
+  background: #f7f7f7; 
+}
+h1 { color: #333; }
+h2 { margin-top: 30px; }
+.pass { color: green; font-weight: bold; }
+.fail { color: red; font-weight: bold; }
+.skipped { color: #c7a600; font-weight: bold; }
+
+.feature-box {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Force chart to stay small */
+.chart-container {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#summaryChart {
+  width: 200px !important;
+  height: 200px !important;
+}
+</style>
+</head>
+
+<body>
+<h1>Cucumber Test Report</h1>
+
+<h2>Scenario Summary</h2>
+
+<div class="chart-container">
+  <canvas id="summaryChart"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('summaryChart').getContext('2d');
+new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Passed', 'Failed', 'Skipped'],
+    datasets: [{
+      data: [12, 2, 0],
+      backgroundColor: ['#28a745', '#dc3545', '#ffc107'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: false,
+    maintainAspectRatio: false
+  }
+});
+</script>
+<div class="feature-box"><h2>Contacts page validations</h2><h3>Create a new contact with all required fields</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user fills in all the required contact details on the Create Contact page — passed</li><li class="passed">And  the user clicks the Save button — passed</li><li class="passed">Then  the new contact should be created successfully — passed</li><li class="passed">And  the contact last name should be visible in the contact record page — passed</li><li class="passed">After undefined — passed</li></ul><h3>Create a new contact with missing required fields</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user fills in the contact details but leaves the required field "Last Name" empty on the Create Contact page — passed</li><li class="passed">And  the user clicks the Save button — passed</li><li class="passed">Then  the user should see an error message indicating the missing required field — passed</li><li class="passed">And  the contact should not be created — passed</li><li class="passed">After undefined — passed</li></ul><h3>Create a new contact by importing a vCard</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a valid vCard file on the Import vCard page — passed</li><li class="passed">And  the user clicks the "Import vCard" button — passed</li><li class="passed">Then  the contact should be created successfully — passed</li><li class="passed">And  the contact last name should be visible in the contact record page — passed</li><li class="passed">After undefined — passed</li></ul><h3>View Contact details</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user clicks on the specific contact button on the view contacts page — passed</li><li class="passed">Then  the contact full name should be visible in the contact record page — passed</li><li class="passed">After undefined — passed</li></ul><h3>View Recently Viewed Contacts</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user clicks on the specific contact button on the view contacts page — passed</li><li class="passed">Then  the contact should be listed in the recently viewed menu — passed</li><li class="passed">After undefined — passed</li></ul><h3>Import Contacts with valid file</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a valid file on the Import Contacts page — passed</li><li class="passed">And  the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button — passed</li><li class="passed">Then  the user should view the Import Results screen with new contact details — passed</li><li class="passed">After undefined — passed</li></ul><h3>Import Contacts with invalid file</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a invalid file on the Import Contacts page — passed</li><li class="passed">Then  the user should see the Invalid import file name Message — passed</li><li class="passed">After undefined — passed</li></ul></div><div class="feature-box"><h2>Leads page validations</h2><h3>Create new Lead with all required fields</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user fills in all the required lead details on the Create Lead page — passed</li><li class="passed">And  the user clicks the Save button on the Create Lead page — passed</li><li class="passed">Then  the new Lead should be created successfully — passed</li><li class="passed">And  the lead name should be visible in the lead record page — passed</li><li class="passed">After undefined — passed</li></ul><h3>Create a new Lead with missing required fields</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user fills in the Lead details but leaves the required field "Last Name" empty on the Create Lead page — passed</li><li class="passed">And  the user clicks the Save button on the Create Lead page — passed</li><li class="passed">Then  the user should see an error message indicating the missing required field on the Create Lead page — passed</li><li class="passed">And  the lead should not be created — passed</li><li class="passed">After undefined — passed</li></ul><h3>Create a new lead by importing a vCard</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a valid vCard file on the Import lead from vCard page — passed</li><li class="passed">And  the user clicks the "Import vCard" button on the Import lead from vCard page — passed</li><li class="passed">Then  the lead should be created successfully — passed</li><li class="passed">And  the lead name should be visible in the lead record page — passed</li><li class="passed">After undefined — passed</li></ul><h3>View Lead details</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="failed">When  the user clicks on the specific lead button on the view leads page — failed</li><li class="skipped">Then  the lead full name should be visible in the lead record page — skipped</li><li class="passed">After undefined — passed</li></ul><h3>View Recently Viewed Leads</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="failed">When  the user clicks on the specific lead button on the view leads page — failed</li><li class="skipped">Then  the lead full name should be visible in the lead record page — skipped</li><li class="passed">After undefined — passed</li></ul><h3>Import Lead with valid file</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a valid file on the Import Leads page — passed</li><li class="passed">And  the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button on the Import Leads page — passed</li><li class="passed">Then  the user should view the Import Results screen with new lead details — passed</li><li class="passed">After undefined — passed</li></ul><h3>Import Lead with invalid file</h3><ul><li class="passed">Before undefined — passed</li><li class="passed">Given  the user is logged into the application and on the home page — passed</li><li class="passed">When  the user uploads a invalid file on the Import Leads page — passed</li><li class="passed">Then  the user should see the Invalid import file name Message on the Import Leads page — passed</li><li class="passed">After undefined — passed</li></ul></div></body></html>
