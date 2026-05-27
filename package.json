@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cucumberQuotesHtml":"npx cucumber-js --tags @Quotes --exit --format html:Cucumber-QuotesReport.html",
+    "cucumberdocumentsHtml":"npx cucumber-js --tags @Documents --exit --format html:Cucumber-DocumentReport.html",
+    "cucumberAllureExecute":"npx cucumber-js --format allure-cucumberjs/reporter",
+    "allureGenerateOpen":"npx allure generate allure-results --clean -o allure-report && npx allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

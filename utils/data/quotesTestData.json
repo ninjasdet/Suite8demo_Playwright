@@ -1,0 +1,22 @@
+{
+    "username":"will",
+    "password":"will",
+    "title" : "QuoteTest",
+    "approvalStatus":"Approved",
+    "opportunity":"Nelson Inc - 10000 units",
+    "quoteStage":"Draft",
+    "invoiceStatus":"Not Invoiced",
+    "paymentTerms":"Nett 15",
+    "approvalIssues":"Not checked Approved status",
+    "billingAccount":"Aim Capital Inc",
+    "billingContact":"Bill Wren",
+    "groupName":"Group Quote Test",
+    "serviceName":"Service Quote Test",
+    "servicePrice":"25000",
+    "serviceDiscount":"2.75",
+    "serviceVAT":"5%",
+    "newValue":"NewQuote",
+    "ValidationMsgTitle":"Missing required field: Title",
+    "ValidationMsgValidUntil":"Missing required field: Valid Until",
+    "newServiceValue":"Service Line Item To Import"
+}
