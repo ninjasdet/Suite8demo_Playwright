@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cucumberAccountsHtml": "npx cucumber-js --tags @Accounts --exit --format html:cucumber-accountreport.html",
+    "cucumberOpportunitiesHtml": "npx cucumber-js --tags @Opportunities --exit --format html:cucumber-opportunitiereport.html",
+    "cucumberLoginHtml": "npx cucumber-js --tags @Login --exit --format html:cucumber-loginreport.html",
+    "cucumberQuotesHtml": "npx cucumber-js --tags @Quotes --exit --format html:Cucumber-QuotesReport.html",
+    "cucumberdocumentsHtml": "npx cucumber-js --tags @Documents --exit --format html:Cucumber-DocumentReport.html",
+    "cucumberAllureExecute": "npx cucumber-js --format allure-cucumberjs/reporter",
+    "allureGenerateOpen": "npx allure generate allure-results --clean -o allure-report && npx allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,5 +21,8 @@
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0",
     "playwright-bdd": "^8.5.0"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }
