@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cucumberAccountsHtml":"npx cucumber-js --tags @Accounts --exit --format html:cucumber-accountreport.html",
+    "cucumberOppotunitiesHtml": "npx cucumber-js --tags @module --exit --format html: cucumber-report.html",
+      "clean:report": "rm -rf reports",
+  "test": "npm run clean:report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
