@@ -8,11 +8,11 @@ class ContactLoginPage {
 
   async goto() {
     await this.page.goto('https://suite8demo.suiteondemand.com/');        
-    await this.username.waitFor(); // ensure login page loaded 
+    await this.username.waitFor(); 
   }
 
   async login(user, pass) {
-    await this.username.fill(user);
+    await this.username.fill(user); 
     await this.password.fill(pass);
     await this.loginBtn.click();
     await this.page.waitForURL(/#\/home/);   

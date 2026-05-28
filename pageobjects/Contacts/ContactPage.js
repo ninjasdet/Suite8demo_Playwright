@@ -58,8 +58,7 @@ class ContactPage {
     await this.recentlyViewedContactLink.click();
   }
 
-  getNameLocator(name) {
-    //return this.page.locator('scrm-field.field-name-name a.field-link', { hasText: name }).first();
+  getNameLocator(name) {    
     return this.page.locator('a.field-link', { hasText: name }).first();
   }
 
