@@ -31,7 +31,7 @@ class validationPage {
 
     async login_WithUsernameEmptyPassword(){ 
       await this.page.waitForTimeout(5000);
-    const ErrorMessage = await this.page.getByText('Missing required field').nth(1).textContent();
+    const ErrorMessage = await this.page.getByText('Missing required field').textContent();
         console.log('Errormessage under passwordtextbox :' +ErrorMessage);   
     }
 
