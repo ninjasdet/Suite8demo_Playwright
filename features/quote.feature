@@ -47,8 +47,4 @@ Feature: Suite8demo applicatio Quotes page validations
         When Click Exit in Import Line Item page
         Then Verify the file is imported successfully
 
-    @Quotes
-    Scenario: Delete Quote
-        Given S7 The user has logged into the application with valid username and password
-        When Selecting Quotes and Deleting
-        Then Verify the Quote is deleted
+

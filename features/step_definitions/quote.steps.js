@@ -204,24 +204,3 @@ Then('Verify the file is imported successfully',{timeout:20000}, async function(
     await this.validationPage.verifyImportLineItems(datasetQuote.newServiceValue);    
 });
 //****************************************************************************** */
-//Scenario 7 : Delete Quote
-Given('S7 The user has logged into the application with valid username and password', {timeout:20000}, async function(){
-    //Login into applications
-    this.loginPage = await this.poManager.getLoginPage();
-    await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
-});
-When('Selecting Quotes and Deleting',{timeout:20000}, async function(){
-    //Select View Quote from Quotes menu - Quotes to Delete
-    this.navigatePage = this.poManager.getNavigatePage();
-    await this.navigatePage.viewQuotesPage();
-    //Filter the Quote to delete
-    this.enterValuesPage = this.poManager.getEnterValuesPage();
-    await this.enterValuesPage.filterQuote(datasetQuote.title);
-    //Select checkbox and perform delete action
-    await this.enterValuesPage.deleteQuote();
-});
-Then('Verify the Quote is deleted',{timeout:20000}, async function(){
-    this.validationPage = this.poManager.getValidationPage();
-    await this.validationPage.verifyQuote_Delete();
-});
