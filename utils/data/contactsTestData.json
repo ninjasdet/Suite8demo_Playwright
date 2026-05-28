@@ -1,0 +1,12 @@
+{  
+  "firstName": "John",
+  "lastName": "Smith",
+  "mobile": "4441234567",
+  "phone": "9876543210",
+  "department": "IT",
+  "email": "john.smith@example.com",
+  "importvcardfullname": "John Smith",
+  "contactfullname": "John Smith",
+  "importfirstname": "John",
+  "importlastname": "Doe"
+}

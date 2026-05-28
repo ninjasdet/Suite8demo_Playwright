@@ -35,7 +35,7 @@ Scenario:  View Recently Viewed Contacts
     When the user clicks on the specific contact button on the view contacts page    
     Then the contact should be listed in the recently viewed menu    
  
-@contacts
+@contacts @contactimport
 Scenario: Import Contacts with valid file 
     Given the user is logged into the application and on the home page
     When the user uploads a valid file on the Import Contacts page

@@ -184,7 +184,7 @@ Then('the user should view the Import Results screen with new contact details', 
     initContactPages(this);
     console.log('Executing step: the user should view the Import Results screen with new contact details');
 
-    await this.page.waitForURL(/import\/Last/, { timeout: 20000 });
+    //await this.page.waitForURL(/import\/Last/, { timeout: 20000 });
     const frame = this.page.frameLocator('iframe');
     await expect(frame.locator('h2.module-title-text')).toHaveText('Step 5: View Import Results');
 

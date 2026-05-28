@@ -44,7 +44,7 @@ Scenario: Import Lead with valid file
     And the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button on the Import Leads page
     Then the user should view the Import Results screen with new lead details
 	
-@leads    
+@leads
 Scenario: Import Lead with invalid file 
     Given the user is logged into the application and on the home page
     When the user uploads a invalid file on the Import Leads page            

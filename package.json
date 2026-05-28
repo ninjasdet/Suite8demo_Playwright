@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cucumberContactsHtml": "npx cucumber-js --tags @contacts --exit --format html:Cucumber-ContactsReport.html",
+    "cucumberLeadsHtml": "npx cucumber-js --tags @leads --exit --format html:Cucumber-LeadsReport.html",
     "cucumberQuotesHtml": "npx cucumber-js --tags @Quotes --exit --format html:Cucumber-QuotesReport.html",
     "cucumberdocumentsHtml": "npx cucumber-js --tags @Documents --exit --format html:Cucumber-DocumentReport.html",
     "cucumberAllureExecute": "npx cucumber-js --format allure-cucumberjs/reporter",
@@ -18,7 +20,7 @@
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0",
     "playwright-bdd": "^8.5.0"
-  },
+  },  
   "dependencies": {
     "exceljs": "^4.4.0"
   }
