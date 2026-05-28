@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "cucumberAccountsHtml":"npx cucumber-js --tags @Accounts --exit --format html:cucumber-accountreport.html",
-    "cucumberOppotunitiesHtml": "npx cucumber-js --tags @Opportunities --exit --format html: cucumber-opportunitiereport.html",
-      "clean:report": "rm -rf reports",
-  "test": "npm run clean:report"
+    "cucumberOpportunitiesHtml": "npx cucumber-js --tags @Opportunities --exit --format html:cucumber-opportunitiereport.html",
+    "cucumberLoginHtml": "npx cucumber-js --tags @Login --exit --format html:cucumber-loginreport.html"
   },
   "keywords": [],
   "author": "",
