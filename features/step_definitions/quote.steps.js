@@ -16,7 +16,7 @@ Given('S1 The user has logged into the application with valid username and passw
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
 
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
 });
 When('Selecting Create Quote from Quotes option',{timeout:20000}, async function () {
     // Write code here that turns the phrase above into concrete actions
@@ -51,7 +51,7 @@ Given('S2 The user has logged into the application with valid username and passw
     
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
 });
 When ('Selecting Create Quote from Quotes option and Title and Valid Until fields are blank',{timeout:20000}, async function(){
     //Select Create Quote from Quotes menu
@@ -77,7 +77,7 @@ Given('S3 The user has logged into the application with valid username and passw
     //Login into applications
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
 });
 When('Selecting View Quotes from Quotes option',{timeout:20000}, async function(){
     //Select View Quote from Quotes menu
@@ -102,7 +102,7 @@ Given('S4 The user has logged into the application with valid username and passw
     //Login into applications
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);    
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);    
 });
 When('Selecting View Quotes and Recently Viewed from Quotes',{timeout:50000},async function(){
     this.navigatePage = this.poManager.getNavigatePage();
@@ -121,7 +121,7 @@ Given('S5 The user has logged into the application with valid username and passw
     //Login into applications
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
 });
 When ('Selecting Import Quotes from Quotes option',{timeout:20000}, async function(){
     //Select Import from Quotes menu
@@ -164,7 +164,7 @@ Given('S6 The user has logged into the application with valid username and passw
     //Login into applications
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetQuote.username,datasetQuote.password);
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
 });
 When('Selecting Import Line Items from Quotes option',{timeout:20000},async function(){
     //Select Import Line Item from Quotes menu
