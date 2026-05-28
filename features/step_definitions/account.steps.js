@@ -4,10 +4,10 @@ const {navigatePage} = require('../../pageobjects/navigatePage.js');
 const {enterValuesPage} = require('../../pageobjects/enterValuesPage.js');
 const {POManager} = require('../../pageobjects/POManager.js');
 const {validationPage} = require('../../pageobjects/validationPage.js');
-const datajson = JSON.parse(JSON.stringify(require('../../utlis/data/datajson.js')));
+const datajson = JSON.parse(JSON.stringify(require('../../utils/data/datajson.js')));
 const path = require('path');
-const filepath= path.join(process.cwd(),'utlis','downloads','Accounts.csv');
-const writeCsvTest  = require('../../utlis/cvstest.js');
+const filepath= path.join(process.cwd(),'utils','downloads','Accounts.csv');
+const writeCsvTest  = require('../../utils/cvstest.js');
 
 
 

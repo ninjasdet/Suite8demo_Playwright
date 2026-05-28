@@ -5,7 +5,6 @@ const {validationPage} = require('./validationPage.js');
 const {enterValuesPage} = require('./enterValuesPage.js');
 
 
-
 class POManager{
 
     constructor(page)
@@ -16,7 +15,6 @@ class POManager{
    this.navigatePage = new navigatePage(this.page);
    this.enterValuesPage = new enterValuesPage(this.page);
    this.validationPage = new validationPage(this.page);
-
 
     }
 
@@ -40,8 +38,4 @@ getValidationPage()
 }
 
 }
-module.exports = POManager;
-
-    
-
-
+module.exports = {POManager};

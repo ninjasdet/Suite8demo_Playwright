@@ -1,7 +1,7 @@
 const {Given, When, Then ,setDefaultTimeout } = require('@cucumber/cucumber');
 const {loginPage} = require('../../pageobjects/loginPage.js');
 //const {POManager} = require('../../pageobjects/POManager.js');
-const datajson = JSON.parse(JSON.stringify(require('../../utlis/data/datajson.js')));
+const datajson = JSON.parse(JSON.stringify(require('../../utils/data/datajson.js')));
 const {validationPage} = require('../../pageobjects/validationPage.js');
 
  setDefaultTimeout(60 * 1000);

@@ -1,6 +1,7 @@
+
 const { Before, After } = require('@cucumber/cucumber');
-const { chromium } = require('playwright');
-const POManager = require('../../pageobjects/POManager');
+const { chromium } = require('@playwright/test');
+const {POManager} = require('../../pageobjects/POManager.js');
 
 
 Before(async function () {
@@ -9,12 +10,11 @@ Before(async function () {
     this.page = await this.context.newPage();
     this.poManager = new POManager(this.page);
 });
-   // 👈 attach to Cucumber World
-    
-
-
+   
 After(async function () {
     await this.page.close();
     await this.context.close();
     await this.browser.close();
 });
+
+

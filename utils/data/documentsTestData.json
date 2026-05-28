@@ -1,0 +1,12 @@
+{
+    "username":"will",
+    "password":"will",
+    "fileName":"IncomeDocument.xlsx",
+    "titleName":"IncomeDocument",
+    "docType":"Mail Merge",
+    "docCategory":"Sales",
+    "docSubCategory":"Marketing Collateral",
+    "msgFile":"Missing required field: File",
+    "msgDocName":"Missing required field: Document Name",
+    "msgRevision":"Missing required field: Revision"
+}
