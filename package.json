@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cucumberAccountsHtml":"npx cucumber-js --tags @Accounts --exit --format html:cucumber-accountreport.html",
-    "cucumberOppotunitiesHtml": "npx cucumber-js --tags @module --exit --format html: cucumber-report.html",
+    "cucumberOppotunitiesHtml": "npx cucumber-js --tags @Opportunities --exit --format html: cucumber-opportunitiereport.html",
       "clean:report": "rm -rf reports",
   "test": "npm run clean:report"
   },

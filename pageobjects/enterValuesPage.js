@@ -126,16 +126,13 @@ class enterValuesPage {
 
 
     async RecentviewAccounts(accountName){
-         await this.page.getByRole('link', { name: accountName }).first().click();
+        await this.page.locator('scrm-field').filter({ hasText: accountName }).first().click();
          await this.page.waitForTimeout(5000);
          await this.page.locator('a').nth(1).click()
          await this.page.waitForTimeout(3000);
          await this.page.locator('a').nth(5).click();
-         await this.page.waitForTimeout(3000);
-         await this.page.getByRole('navigation').getByRole('link', { name: accountName }).click();
-
-
-
+         await this.page.waitForTimeout(5000);
+         await this.page.getByRole('navigation').getByRole('link', { name: accountName }).first().click();
     }
         
 
