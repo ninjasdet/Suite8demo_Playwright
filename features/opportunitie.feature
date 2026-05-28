@@ -1,4 +1,4 @@
-@module
+@Opportunities
 
 Feature: Opportunities page 
 
