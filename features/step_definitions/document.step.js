@@ -13,7 +13,7 @@ const filePathDoc = path.join(process.cwd(), 'utils', 'downloads', 'IncomeDocume
 Given('D1 The user has logged into the application with valid username and password',{timeout:20000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetDoc.username,datasetDoc.password);    
+    await this.loginPage.loginApp(datasetDoc.username,datasetDoc.password);    
 });
 When ('Selecting Create Documents from Documents option',{timeout:20000}, async function(){
     //Select Create Documents from Documents menu
@@ -41,7 +41,7 @@ Then('Verify document is created successfully', {timeout:50000}, async function(
 Given('D2 The user has logged into the application with valid username and password',{timeout:20000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetDoc.username,datasetDoc.password);    
+    await this.loginPage.loginApp(datasetDoc.username,datasetDoc.password);    
 });
 When ('Selecting Create Documents from Documents option and having blank values in File Name, Document Name, Revision fields and clicking save button',{timeout:20000}, async function(){
     //Select Create Documents from Documents menu
@@ -63,7 +63,7 @@ Then ('Verify validation message is displayed for mandatory fields in Documents 
 Given('D3 The user has logged into the application with valid username and password',{timeout:50000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
-    await this.loginPage.loginToApp(datasetDoc.username,datasetDoc.password);    
+    await this.loginPage.loginApp(datasetDoc.username,datasetDoc.password);    
 });
 When ('Navigating to Documents in Documents Page',{timeout:50000}, async function(){
     //Select View Documents from Documents menu

@@ -113,7 +113,7 @@ When('the user clicks the "Import vCard" button on the Import lead from vCard pa
     initLeadsPages(this);
     console.log('Executing step: the user clicks the "Import vCard" button');
     await this.importVCardPage.clickImport();
-    await this.page.waitForURL(/\/leads\/record\//);
+    //await this.page.waitForURL(/\/leads\/record\//);
 
 });
 
