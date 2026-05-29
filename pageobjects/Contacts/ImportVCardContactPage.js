@@ -7,10 +7,12 @@ class ImportVCardContactPage {
 
   async uploadVCard(filePath) {
     await this.vcardInput.setInputFiles(filePath);
+    await this.page.waitForTimeout(5000);
   }
 
   async clickImport() {
     await this.importButton.click();
+    //await this.page.waitForURL(/\/contacts\/record\//);    
   }
 }
 
