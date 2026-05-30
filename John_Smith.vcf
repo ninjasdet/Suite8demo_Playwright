@@ -1,0 +1,7 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:John Smith
+N:Smith;John;;;
+EMAIL:john.smith@example.com
+TEL;TYPE=CELL:4441234567
+END:VCARD
