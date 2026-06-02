@@ -36,7 +36,7 @@ Feature: Suite8demo applicatio Quotes page validations
         When Click Exit in Import Quotes page
         Then Verify the file is imported successfully and displayed in View Quotes page
 
-    @Quotes
+    @Quotes 
     Scenario: Import Line Items
         Given S6 The user has logged into the application with valid username and password
         When Selecting Import Line Items from Quotes option
