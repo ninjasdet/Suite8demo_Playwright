@@ -26,7 +26,8 @@ const datajson = {
     shippingCountry: "usa",
     emptyAccountName: " ",
     NewAccountName: "david123",
-    ImportNewValue: "billa"
+    ImportNewValue: "billa",
+    pageLabel: "Create"
     
   },
   opportunitiesDetails:{

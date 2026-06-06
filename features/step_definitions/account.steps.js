@@ -10,6 +10,24 @@ const filepath= path.join(process.cwd(),'utils','downloads','Accounts.csv');
 const writeCsvTest  = require('../../utils/cvstest.js');
 
 
+//AccountsNavigationValidation
+ Given('user signs into the Login page using valid username and password following which navigates to the Home page',{timeout:20000}, async function () {
+          this.loginPage = await this.poManager.getLoginPage();
+          await this.loginPage.navigateURL();
+          await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+         });
+
+When('The user clicks on Accounts module from menu.', {timeout:20000}, async function () {
+           this.navigatePage = await this.poManager.getNavigatePage();
+            await this.navigatePage.AccountsPage();
+         });
+
+Then('The user should able to navigate to the Accounts module successfully and the Accounts page URL should be correct',{timeout:20000},  async function () {
+            this.validationPage = await this.poManager.getValidationPage();
+             await this.validationPage.verifyAccountsPage();
+             await this.validationPage.verifyAccountsPageURL();
+         });      
+
 
 //Create Account
  Given('S1 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000},  async function () {
@@ -50,9 +68,47 @@ const writeCsvTest  = require('../../utils/cvstest.js');
     console.log("create account succesfully");
          });
 
+
+//CreateAccountValidation
+ Given('S2 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000},  async function () { 
+    //Login into applications
+    this.loginPage = await this.poManager.getLoginPage();
+      await this.loginPage.navigateURL();
+      await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+
+ });
+
+ When('The user clicks on Accounts module and click on create account', {timeout:20000},  async  function () {
+             this.navigatePage = await this.poManager.getNavigatePage();
+           this.enterValuesPage = await this.poManager.getEnterValuesPage();
+           await this.navigatePage.createAccountsPage();
+         });
+
+Then('User should navigate to Create Account page and Create label should be visible', {timeout:20000},  async function () {
+          this.validationPage = await this.poManager.getValidationPage();
+           await this.validationPage.Verify_CreateAccountsPage(datajson.accountDetails.pageLabel);
+         });
+
+Then('Verify the NAME field should be visible and enabled', {timeout:20000},  async function () {
+          this.validationPage = await this.poManager.getValidationPage();
+          await this.validationPage.Verify_AccountNAME_Field();
+         });
+
+
+Then('Verify the NAME field editbox is editable', {timeout:20000},  async function () {
+            this.validationPage = await this.poManager.getValidationPage();
+            await this.validationPage.Verify_AccountNAME_Field_Editable();
+         });
+
+ Then('Verify Save button and Cancel button should be visible and enabled', {timeout:20000}, async function () {
+           this.validationPage = await this.poManager.getValidationPage();
+           await this.validationPage.Verify_SaveAndCancelButton_CreateAccount();
+         });
+
+
 //Verify that user receives error message for empty Name field during Create Account
 
-Given('S2 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000},async function () {
+Given('S3 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000},async function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
         await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
@@ -72,7 +128,7 @@ Then('The user should able to see error message {string} under Name textbox.', {
 
 
 //View Accounts
-Given('S3 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
+Given('S4 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
            await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
@@ -94,7 +150,7 @@ Then('The user should able to see the account details in the list.', {timeout:20
 
 //RecentlyViewedAccounts
 
-Given('S4 user signs into the Login page using valid username and password following which navigates to the Home page.', async function () {
+Given('S5 user signs into the Login page using valid username and password following which navigates to the Home page', async function () {
          
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
@@ -122,7 +178,7 @@ Then('The user able to see the recently viewed account details.', async function
 
 //Verify that user able to update the account details
 
-Given('S5 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
+Given('S6 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
            await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
@@ -149,7 +205,7 @@ Then('The user should able to see the updated account details.',{timeout:60000},
          
 //Import Accounts
 
-Given('S6 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
+Given('S7 user signs into the Login page using valid username and password following which navigates to the Home page', {timeout:20000}, async function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
            await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
