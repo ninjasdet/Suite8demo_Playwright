@@ -1,13 +1,12 @@
 const {Given, When, Then } = require('@cucumber/cucumber');
 const {POManager} = require('../../pageobjects/POManager.js');
-//const{POManager} = require('../../pageobjects_suite8demo/POManager.js');
 const datasetQuote = JSON.parse(JSON.stringify(require('../../utils/data/quotesTestData.json')));
-//const datasetDoc = JSON.parse(JSON.stringify(require('../../utils/data/documentsTestData.json')));
+const datasetUI = require('../../utils/data/quotesUITestData.json');
 const path = require('path');
 const writeExcelTest = require('../../pageobjects/writeExcelTest.js');
 const filePathQuotes = path.join(process.cwd(), 'utils', 'downloads', 'Quotes.csv');
 const filePathLI = path.join(process.cwd(), 'utils', 'downloads', 'LineItems.csv');
-//const filePathDoc = path.join(process.cwd(), 'utils', 'downloads', 'IncomeDocument.xlsx');
+
 
 //Scenario 1: Create a new Quote
 Given('S1 The user has logged into the application with valid username and password', {timeout:20000}, async function () {
@@ -203,4 +202,72 @@ Then('Verify the file is imported successfully',{timeout:20000}, async function(
     //Verify new line item is imported successfully - View Line Items page
     await this.validationPage.verifyImportLineItems(datasetQuote.newServiceValue);    
 });
+//************************************************************************************************************** */
+//Scenario 7 : Delete Quote
+Given('S7 The user has logged into the application with valid username and password', {timeout:20000}, async function(){
+    //Login into applications
+    this.loginPage = await this.poManager.getLoginPage();
+    await this.loginPage.navigateURL();
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
+});
+When('Selecting Quotes and Deleting',{timeout:50000}, async function(){
+    //Select View Quote from Quotes menu - Quotes to Delete
+    this.navigatePage = this.poManager.getNavigatePage();
+    await this.navigatePage.viewQuotesPage();
+    //Filter the Quote to delete
+    this.enterValuesPage = this.poManager.getEnterValuesPage();
+    await this.enterValuesPage.filterQuote(datasetQuote.title);
+    //Select checkbox and perform delete action
+    await this.enterValuesPage.deleteQuote();
+});
+Then('Verify the Quote is deleted',{timeout:20000}, async function(){
+    this.validationPage = this.poManager.getValidationPage();
+    await this.validationPage.verifyQuote_Delete();
+});
 //****************************************************************************** */
+//Scenario 8 :Validate User Interface of Quotes page - Overview section
+Given('S8 The user has logged into the application with valid username and password', {timeout:20000}, async function(){
+    //Login into applications
+    this.loginPage = await this.poManager.getLoginPage();
+    await this.loginPage.navigateURL();
+    await this.loginPage.loginApp(datasetQuote.username,datasetQuote.password);
+});
+When('Selecting Create Quote option from Quotes',{timeout:20000},async function(){
+    //Select Create Quote from Quotes menu
+    this.navigatePage = this.poManager.getNavigatePage();
+    await this.navigatePage.createQuotePage(); 
+});
+Then('Verify Quotes is displayed as the page title and Create label is displayed',{timeout:20000}, async function(){
+    this.validationPage = this.poManager.getValidationPage();
+    await this.validationPage.quotes_VerifyPageTitleandLabel(datasetUI.pageTitle,datasetUI.pageLabel);
+});
+Then('Verify Title field editbox is editable',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyTitleField();
+});
+Then('Verify Quote Number field is visible',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyQuoteNumField();
+});
+Then('Verify max length of Valid Until field is 10',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyDateFieldLen(datasetUI.dateFieldLen);
+});
+Then('Verify Approval Status dropdown list values contains Approved and Not Approved',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyApprovalStatusListValues(datasetUI.approvalStatusUI);
+});
+Then('Verify Opportunity field is editable',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyOpportunityField();
+});
+Then('Verify the values present in Quote Stage dropdown list',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyQuoteStageListValues(datasetUI.quoteStageUI);
+});
+Then('Verify Invoice Status dropdown list values contain Not Invoiced and Invoiced',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyInvoiceStatusListValues(datasetUI.invoiceStatusUI);
+});
+Then('Verify Payment terms dropdown list values',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyPaymentTermsListValues(datasetUI.paymentTermsUI);
+});
+Then('Verify Approval Issues field is editable',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifyApprovalIssuesField();
+});
+Then('Verify Save and Cancel buttons are enabled',{timeout:20000}, async function(){
+    await this.validationPage.quotes_VerifySaveCancelBtnStatus();
+});

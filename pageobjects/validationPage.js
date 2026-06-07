@@ -6,7 +6,6 @@ class validationPage {
         this.framePage =  page.frameLocator('[src*="index.php"]');
     }
 
-
     async verifySuccesfulLogin() {
         await this.page.waitForLoadState('networkidle');
         expect(await this.page.locator('iframe').contentFrame().getByRole('link', { name: 'SUITECRM DASHBOARD' }).textContent()).toContain('SUITECRM DASHBOARD');
@@ -42,6 +41,19 @@ class validationPage {
     const ErrorMessage = await this.page.getByText('Missing required field').first().textContent();
         console.log('Errormessage under usernametextbox :' +ErrorMessage);   
     }
+
+    async verifyAccountsPage() {
+    await this.page.waitForLoadState('networkidle');
+   expect (await this.page.locator('a').nth(1)).toBeVisible();
+    }
+
+     async verifyAccountsPageURL() {
+        await this.page.waitForTimeout(3000);
+        expect (await this.page.getByText('ACCOUNTS', { exact: true })).toContainText('ACCOUNTS');
+        console.log("successfully navigated to accounts page");
+        await this.page.waitForTimeout(3000);
+        await expect(this.page).toHaveURL(/accounts/);
+     }
     
 
     async VerifyCreateAccountDetails(accountName){
@@ -49,15 +61,38 @@ class validationPage {
       expect(await this.page.getByLabel('OVERVIEW').getByText(accountName, { exact: true }).textContent()).toContain(accountName);
     }
 
+      async Verify_CreateAccountsPage(pageLabel){
+        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForTimeout(3000);
+        expect(await this.page.getByText(pageLabel, { exact: true })).toBeVisible();
+        expect(await this.page.getByText(pageLabel, { exact: true })).toContainText(pageLabel);
+      }
 
+      async Verify_AccountNAME_Field(){
+            await this.page.waitForTimeout(3000);
+            expect(await this.page.getByRole('textbox').nth(1)).toBeVisible();
+            expect(await this.page.getByRole('textbox').nth(1)).toBeEnabled();
+      }
+
+         async Verify_AccountNAME_Field_Editable(){
+            expect(await this.page.getByRole('textbox').nth(1)).toBeEditable();
+    }
+
+    async Verify_SaveAndCancelButton_CreateAccount(){
+        await this.page.waitForTimeout(3000);
+        expect(await this.page.getByRole('button', { name: 'Save' })).toBeVisible();
+        expect(await this.page.getByRole('button', { name: 'Save' })).toBeEnabled();
+        expect(await this.page.getByRole('button', { name: 'Cancel' })).toBeVisible();
+        expect(await this.page.getByRole('button', { name: 'Cancel' })).toBeEnabled();
+    }
+
+    
      async VerifyAccountMandatoryFileds(){
          await this.page.waitForLoadState('networkidle');
          await this.page.waitForTimeout(3000);
          const ErrorMessage = await this.page.getByText('Missing required field: Name').textContent();
          console.log(ErrorMessage);
          expect(await this.page.getByText('Missing required field: Name').textContent()).toContain('Missing required field: Name');
-
-
 
      }
 
@@ -246,6 +281,61 @@ class validationPage {
         expect(await this.page.locator('span[class*="uploaded-file-name"]').nth(1).getAttribute('title')).toContain(fileName);
 
     }
+
+        async quotes_VerifyPageTitleandLabel(pageTitle,pageLabel){
+        expect(await this.framePage.locator('.header-module-title').textContent()).toContain(pageTitle);
+        expect(await this.framePage.locator('.module-title-text-breadcrumbs-create').textContent()).toContain(pageLabel);
+    }
+
+    async quotes_VerifyTitleField(){
+        expect(await this.framePage.locator('#name').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifyQuoteNumField(){
+        expect(await this.framePage.locator('div[type="int"]').isVisible()).toBeTruthy();
+    }
+
+    async quotes_VerifyDateFieldLen(dateFieldLen){
+            expect(await this.framePage.locator('#expiration').getAttribute('maxlength')).toBe(dateFieldLen);
+    }
+
+    async quotes_VerifyApprovalStatusListValues(approvalStatusUI){
+        const approvalStatusVal = (await this.framePage.locator('#approval_status').textContent()).split("\n");
+        const statusValidation =  approvalStatusUI.split(",").every(val => approvalStatusVal.includes(val) );   
+        expect(statusValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyOpportunityField(){
+        expect(await this.framePage.locator('#opportunity').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifyQuoteStageListValues(quoteStageUI){
+        const quoteStageVal = (await this.framePage.locator('#stage').textContent()).split("\n");
+        const stageValidation = quoteStageUI.split(",").every(val => quoteStageVal.includes(val) );
+        expect(stageValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyInvoiceStatusListValues(invoiceStatusUI){
+        const invoiceStatusVal = (await this.framePage.locator('#invoice_status').textContent()).split("\n");
+        const invoiceValidation = invoiceStatusUI.split(",").every(val => invoiceStatusVal.includes(val));
+        expect(invoiceValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyPaymentTermsListValues(paymentTermsUI){
+        const paymentTermsVal = (await this.framePage.locator('#term').textContent()).split("\n");
+        const paymentTermValidation = paymentTermsUI.split(",").every(val => paymentTermsVal.includes(val));
+        expect(paymentTermValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyApprovalIssuesField(){
+        expect(await this.framePage.locator('#approval_issue').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifySaveCancelBtnStatus(){
+        expect(await this.framePage.locator('#SAVE').isEnabled()).toBeTruthy();
+        expect(await this.framePage.locator('#CANCEL').isEnabled()).toBeTruthy();
+    }
+
 }
 module.exports = {validationPage};
 

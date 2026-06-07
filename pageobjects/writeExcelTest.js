@@ -1,7 +1,5 @@
 const ExcelJS = require('exceljs');
 const path = require('path');
-//const filePath = path.join('C:', 'Users', 'krith', 'Downloads', 'Quotes.csv');
-//const filePath = path.join(__dirname, 'download', 'Quotes.csv');
 
 async function writeExcelTest(filePath, newValue) {
     const workbook = new ExcelJS.Workbook();

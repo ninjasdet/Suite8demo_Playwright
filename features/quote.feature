@@ -47,4 +47,28 @@ Feature: Suite8demo applicatio Quotes page validations
         When Click Exit in Import Line Item page
         Then Verify the file is imported successfully
 
+    @Quotes
+    @Delete
+    Scenario: Delete Quote
+        Given S7 The user has logged into the application with valid username and password
+        When Selecting Quotes and Deleting
+        Then Verify the Quote is deleted
+        
+    @Quotes
+    @UI
+    Scenario: Validate User Interface of Quotes page - Overview section
+        Given S8 The user has logged into the application with valid username and password
+        When Selecting Create Quote option from Quotes
+        Then Verify Quotes is displayed as the page title and Create label is displayed
+        Then Verify Title field editbox is editable
+        Then Verify Quote Number field is visible
+        Then Verify max length of Valid Until field is 10
+        Then Verify Approval Status dropdown list values contains Approved and Not Approved
+        Then Verify Opportunity field is editable
+        Then Verify the values present in Quote Stage dropdown list
+        Then Verify Invoice Status dropdown list values contain Not Invoiced and Invoiced
+        Then Verify Payment terms dropdown list values
+        Then Verify Approval Issues field is editable
+        Then Verify Save and Cancel buttons are enabled
+
 

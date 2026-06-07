@@ -206,10 +206,8 @@ class enterValuesPage {
     async filterQuote(title){
         await this.page.locator('button[class*="filter-settings-button"]').click();
         await this.page.locator('scrm-varchar-filter[class*="ng-star-inserted"]').locator('input[type="text"]').nth(0).fill(title);
-        await this.page.getByText('Search', { exact: true }).click();
-        //await this.page.locator('scrm-label').filter({ hasText: 'Search' }).first().click();
-        await this.page.waitForLoadState('networkidle');
-        await this.page.locator('scrm-module-title[class="list-view-title"]').waitFor();
+        await this.page.locator('scrm-label:has-text("Search")').click();
+        await this.page.locator('span').filter({ hasText: '(1 - 1 of 1)' }).first().waitFor();
     }
 
     async deleteQuote(){

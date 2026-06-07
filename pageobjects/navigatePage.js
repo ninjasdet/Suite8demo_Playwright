@@ -5,6 +5,11 @@ class navigatePage {
         this.framePage =  page.frameLocator('[src*="index.php"]');
     }
 
+      async AccountsPage(){
+     await this.page.locator('a').filter({ hasText: /^Accounts$/ }).click();
+     }
+
+
     async createAccountsPage() {
         await this.page.locator('a').filter({ hasText: /^Accounts$/ }).click();
         await this.page.getByRole('link', { name: 'Create Account' }).click();
