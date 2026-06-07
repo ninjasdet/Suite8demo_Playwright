@@ -108,6 +108,24 @@ When('the user uploads a valid vCard file on the Import vCard page', async funct
     await this.importVCardPage.uploadVCard(vcardPath);
 });
 
+When('the user uploads an invalid vCard file on the Import vCard page', async function () {
+    initContactPages(this);
+    console.log('Scenario: Create a new contact by importing a vCard');
+
+    await this.contacts.clickImportVCardContacts();
+
+    // Generate a vCard dynamically
+    const vcardPath = generateVCard(
+        TestData.firstName,
+        '', // Leave last name empty to make it invalid
+        TestData.email,
+        TestData.mobile
+    );
+
+    // Upload the vCard file
+    await this.importVCardPage.uploadVCard(vcardPath);
+});
+
 When('the user clicks the "Import vCard" button', async function () {
     initContactPages(this);
     console.log('Executing step: the user clicks the "Import vCard" button');
@@ -116,22 +134,27 @@ When('the user clicks the "Import vCard" button', async function () {
 
 });
 
+Then('the user should see an error message indicating the required field is missing in the vCard file', async function () {
+
+    initContactPages(this);
+    console.log('Executing step: the user should see an error message indicating the required field is missing in the vCard file');
+    const errorMessage = await this.importVCardPage.getErrorMessage();
+    expect(errorMessage).toContain('vCard does not have all the required fields');
+});
+
 /* -------------------------------
    VIEW CONTACT FLOW
 -------------------------------- */
 When('the user clicks on the specific contact button on the view contacts page', async function () {
     initContactPages(this);
     console.log('Scenario: View Contact details');
-
     await this.contacts.clickViewContacts();
-
     await this.contacts.openContact(TestData.contactfullname);
 });
 
 Then('the contact full name should be visible in the contact record page', async function () {
     initContactPages(this);
     console.log('Executing step: the contact full name should be visible in the contact record page');
-
     const contactRecordName = await this.viewContactsPage.getFullName();
     expect(contactRecordName).toContain(TestData.contactfullname);
 });
@@ -142,19 +165,12 @@ Then('the contact full name should be visible in the contact record page', async
 When('the user uploads a valid file on the Import Contacts page', async function () {
     initContactPages(this);
     console.log('Scenario: Import Contacts with valid file');
-
     await this.contacts.clickImportContacts();
-
     const filePath = await this.importContactsPage.downloadTemplateFile();
-
     const newContactContent = `"${TestData.importfirstname}","${TestData.importlastname}","${TestData.mobile}","${TestData.phone}","${TestData.department}","${TestData.email}"`;
-
     writeCsvTest(filePath, newContactContent);
     console.log(`file path: ${filePath}`);
-
     await this.importContactsPage.uploadFile(filePath);
-
-
 });
 
 When('the user selects create new records and update existing records and clicks on next button for all 3 steps and clicks on Import Now button', async function () {
@@ -168,20 +184,15 @@ When('the user selects create new records and update existing records and clicks
 When('the user uploads a invalid file on the Import Contacts page', async function () {
     initContactPages(this);
     console.log('Scenario: Import Contacts with invalid file');
-
     await this.contacts.clickImportContacts();
-
     const filePath = writeEmptyFile();
     console.log(`file path: ${filePath}`);
-
     await this.importContactsPage.uploadFile(filePath);
-
 });
 
 Then('the user should view the Import Results screen with new contact details', async function () {
     initContactPages(this);
     console.log('Executing step: the user should view the Import Results screen with new contact details');
-
     const frame = this.page.frameLocator('iframe');
     await expect(frame.locator('h2.module-title-text')).toHaveText('Step 5: View Import Results');
 
@@ -203,9 +214,7 @@ Then('the user should see the Invalid import file name Message', async function 
 Then('the contact should be listed in the recently viewed menu', async function () {
     initContactPages(this);
     console.log('Scenario: Recently Viewed Contact');
-
     await this.contacts.clickRecentlyViewedContact();
-
     expect(await this.contacts.isNameVisible(TestData.contactfullname)).toBeTruthy();
 
 });
@@ -218,7 +227,7 @@ Then('the contact should be listed in the recently viewed menu', async function 
 Then('the contact last name should be visible in the contact record page', async function () {
     initContactPages(this);
     console.log('Executing step: the contact full name should be visible in the contact record page');
-    
+
     if (this.page.url().includes('/contacts/record/')) {
         const contactRecordName = (await this.page.locator('span.dynamic-label').innerText()).trim();
         expect(contactRecordName).toContain(TestData.lastName);
