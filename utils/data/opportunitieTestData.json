@@ -1,0 +1,14 @@
+{  
+    "username":"will",
+    "password":"will",
+    "opportunitieName": "pnc Banking Inc",
+    "opportunitieAmount": "1000000",
+    "salesStage": "Prospecting",
+    "probability": "90",
+    "accountName": "david",
+    "expectedcloseDate": "2024-12-31",
+    "type": "New Business",
+    "leadsource": "Cold Call",
+    "newOpportunitieName": "pnc Banking Inc limlited",
+    "importNewValue": "pnc Banking Inc"
+  }

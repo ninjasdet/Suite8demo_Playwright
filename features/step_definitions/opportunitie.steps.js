@@ -4,7 +4,7 @@ const {navigatePage} = require('../../pageobjects/navigatePage.js');
 const {enterValuesPage} = require('../../pageobjects/enterValuesPage.js');
 const {POManager} = require('../../pageobjects/POManager.js');
 const {validationPage} = require('../../pageobjects/validationPage.js');
-const datajson = JSON.parse(JSON.stringify(require('../../utils/data/datajson.js')));
+const datajson = JSON.parse(JSON.stringify(require('../../utils/data/opportunitieTestData.json')));
 const path = require('path');
 const filepath= path.join(process.cwd(),'utils','downloads','Opportunities.csv');
 const writeCsvTest  = require('../../utils/cvstest.js');
@@ -15,7 +15,7 @@ Given('user signs into the Login page using valid username and password followin
            //Login into applications
                this.loginPage = await this.poManager.getLoginPage();
                  await this.loginPage.navigateURL();
-                 await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+                 await this.loginPage.loginApp(datajson.username, datajson.password);
          });
 
 When('The user clicks on Opportunities module and click on create opportunity and enter details and click on save button.',async function () {
@@ -23,28 +23,28 @@ When('The user clicks on Opportunities module and click on create opportunity an
             this.enterValuesPage = await this.poManager.getEnterValuesPage();
             await this.navigatePage.createOpportunitiesPage();
             await this.enterValuesPage.createOpportunities(
-           datajson.opportunitiesDetails.opportunitieName,
-           datajson.opportunitiesDetails.opportunitieAmount,
-           datajson.opportunitiesDetails.salesStage,
-           datajson.opportunitiesDetails.probability,
-           datajson.opportunitiesDetails.accountName,
-           datajson.opportunitiesDetails.expectedcloseDate,
-           datajson.opportunitiesDetails.type,
-           datajson.opportunitiesDetails.leadsource
+           datajson.opportunitieName,
+           datajson.opportunitieAmount,
+           datajson.salesStage,
+           datajson.probability,
+           datajson.accountName,
+           datajson.expectedcloseDate,
+           datajson.type,
+           datajson.leadsource
   );
          });
 
 Then('The user should able to see the created opportunities details.', async function () {
            
       this.validationPage = await this.poManager.getValidationPage();  
-      await this.validationPage.verifyOpportunitie(datajson.opportunitiesDetails.opportunitieName);
+      await this.validationPage.verifyOpportunitie(datajson.opportunitieName);
 
          });
 //EmptyOpportunityName 
 Given('S1 user signs into the Login page using valid username and password following which navigates to the Home page.', async function () {
                  this.loginPage = await this.poManager.getLoginPage();
                  await this.loginPage.navigateURL();
-                 await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+                 await this.loginPage.loginApp(datajson.username, datajson.password);
          });
 
 When('The user clicks on Opportunities module and click on create opportunitie and enter the details with mandatory fileds empty and click on save button.', async function () {
@@ -63,7 +63,7 @@ Then('The user should able to see error messages under the mandatory fileds.', a
 Given('S2 user signs into the Login page using valid username and password following which navigates to the Home page.', async function () {
          this.loginPage = await this.poManager.getLoginPage();
                  await this.loginPage.navigateURL();
-                 await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+                 await this.loginPage.loginApp(datajson.username, datajson.password);
          });
 
 When('The user clicks on Opportunities module and click on view opportunities.', async  function () {
@@ -75,10 +75,10 @@ When('The user clicks on Opportunities module and click on view opportunities.',
 Then('The user should able to see the opportunities details in the list.',async  function () {
            this.validationPage = await this.poManager.getValidationPage();   
          await this.validationPage.VerifyViewOpportunitieDetails(
-          datajson.opportunitiesDetails.opportunitieName,
-          datajson.opportunitiesDetails.opportunitieAmount,
-          datajson.opportunitiesDetails.salesStage,
-          datajson.opportunitiesDetails.accountName); 
+          datajson.opportunitieName,
+          datajson.opportunitieAmount,
+          datajson.salesStage,
+          datajson.accountName); 
          });
 
 
@@ -88,7 +88,7 @@ Then('The user should able to see the opportunities details in the list.',async 
 Given('S3 user signs into the Login page using valid username and password following which navigates to the Home page.', async function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
-           await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+           await this.loginPage.loginApp(datajson.username, datajson.password);
 
          });
 
@@ -100,20 +100,20 @@ When('The user clicks on Opportunities module and click on the viewopportunities
 
 When('The user should  see the opportunities details in the list and  again click on the opportunities module.', async function () {
         this.enterValuesPage = await this.poManager.getEnterValuesPage();   
-       await this.enterValuesPage.RecentviewOpportunities(datajson.opportunitiesDetails.opportunitieName)
+       await this.enterValuesPage.RecentviewOpportunities(datajson.opportunitieName)
 
          });
 
 Then('The user able to see the recently viewed opportunities details.', async function () {
           this.validationPage = await this.poManager.getValidationPage();
-        await this.validationPage.VerifyRecentViewOpportunitieDetails(datajson.opportunitiesDetails.opportunitieName)
+        await this.validationPage.VerifyRecentViewOpportunitieDetails(datajson.opportunitieName)
          });
   //UpdateOpportunities     
 
 Given('S4user signs into the Login page using valid username and password following which navigates to the Home page.',async  function () {
            this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
-           await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+           await this.loginPage.loginApp(datajson.username, datajson.password);
 
          });
 
@@ -125,15 +125,15 @@ When('The user clicks on Opportunities module and click on viewopportunities.', 
 When('The user click on opportunities and click on edit button and update the details and click on save button.',async function () {
             this.validationPage = await this.poManager.getValidationPage();
            await this.validationPage.UpdateViewOpportunitieDetails(
-                datajson.opportunitiesDetails.opportunitieName,
-                datajson.opportunitiesDetails.NewOpportunitieName);
+                datajson.opportunitieName,
+                datajson.newOpportunitieName);
 
          });
 Then('The user should able to see the updated opportunities details.', async function () {
           
                 this.enterValuesPage = await this.poManager.getEnterValuesPage();
                 this.validationPage = await this.poManager.getValidationPage();
-                 await this.validationPage.VerifyUdateOpportunitieDetails(datajson.opportunitiesDetails.NewOpportunitieName);
+                 await this.validationPage.VerifyUdateOpportunitieDetails(datajson.newOpportunitieName);
 
          });
 //ImportOpportunities
@@ -141,7 +141,7 @@ Then('The user should able to see the updated opportunities details.', async fun
 Given('S5 user signs into the Login page using valid username and password following which navigates to the Home page.', async function () {
                this.loginPage = await this.poManager.getLoginPage();
            await this.loginPage.navigateURL();
-           await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+           await this.loginPage.loginApp(datajson.username, datajson.password);
          });
 
 When('The user clicks on Opportunities module and click on import Opportunities.', async function () {
@@ -153,7 +153,7 @@ When('Start to type your When step here click on Download Import File Template a
            
           this.enterValuesPage = await this.poManager.getEnterValuesPage();
           await this.enterValuesPage.accounts_downloadImportFileTemplate();
-          await writeCsvTest(filepath, datajson.opportunitiesDetails.ImportNewValue);
+          await writeCsvTest(filepath, datajson.importNewValue);
 
          });
 
@@ -169,7 +169,7 @@ When('click on choose file and uploads a valid CSV file.', async function () {
 
 Then('The user should able to see the viewimport results.', async function () {
            this.enterValuesPage = await this.poManager.getEnterValuesPage();
-           await this.enterValuesPage.ImportOpportunitieValidation(datajson.opportunitiesDetails.ImportNewValue);
+           await this.enterValuesPage.ImportOpportunitieValidation(datajson.importNewValue);
 
          });
 

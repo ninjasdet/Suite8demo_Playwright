@@ -1,0 +1,22 @@
+{
+   "username":"will",
+    "password":"will",
+    "accountName": "david",
+    "website": "www.phonesection.tw",
+    "email": "david12@gmail.com",
+    "billingStreet": "4212 rowling street",
+    "billingPostalCode": "76122",
+    "billingCity": "aurbery",
+    "billingState": "texas",
+    "billingCountry": "usa",
+    "phoneNumber": "3125438901",
+    "shippingStreet": "4323 milton street",
+    "shippingPostalCode": "76124",
+    "shippingCity": "collin",
+    "shippingState": "texas",
+    "shippingCountry": "usa",
+    "emptyAccountName": "",
+    "newAccountName": "david123",
+    "importNewValue": "billa",
+    "pageLabel": "Create"
+  }
