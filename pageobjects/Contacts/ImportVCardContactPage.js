@@ -3,6 +3,7 @@ class ImportVCardContactPage {
     this.page=page;   
     this.vcardInput = page.locator('iframe').contentFrame().getByRole('button', { name: 'Choose File' });
     this.importButton = page.locator('iframe').contentFrame().getByRole('button', { name: 'Import vCard' });
+    this.errorMessage = page.locator('iframe').contentFrame().locator('div.error');
   }
 
   async uploadVCard(filePath) {
@@ -13,6 +14,11 @@ class ImportVCardContactPage {
   async clickImport() {
     await this.importButton.click();
     //await this.page.waitForURL(/\/contacts\/record\//);    
+  }
+
+  async getErrorMessage() {
+    await this.page.waitForURL(/\/contacts\/Importvcard\?error=vcardErrorRequired/i, { timeout: 15000 });
+    return await this.errorMessage.textContent();
   }
 }
 

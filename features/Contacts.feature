@@ -23,6 +23,13 @@ Scenario: Create a new contact by importing a vCard
     Then the new contact should be created successfully
     And the contact last name should be visible in the contact record page
 
+@contacts @contactinvalidvcard
+Scenario: Create a new contact by importing an invalid vCard
+    Given the user is logged into the application and on the home page
+    When the user uploads an invalid vCard file on the Import vCard page    
+    And the user clicks the "Import vCard" button
+    Then the user should see an error message indicating the required field is missing in the vCard file
+
 @contacts @viewcontactdetails
 Scenario: View Contact details
     Given the user is logged into the application and on the home page
