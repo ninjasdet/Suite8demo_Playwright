@@ -1,0 +1,9 @@
+{
+    "pageTitle":"Quotes",
+    "pageLabel":"CREATE",
+    "dateFieldLen":"10",
+    "approvalStatusUI":"Approved,Not Approved",
+    "quoteStageUI":"Draft,Negotiation,Delivered,On Hold,Confirmed,Closed Accepted,Closed Lost,Closed Dead",
+    "invoiceStatusUI":"Not Invoiced,Invoiced",
+    "paymentTermsUI":"Nett 15,Nett 30"
+}

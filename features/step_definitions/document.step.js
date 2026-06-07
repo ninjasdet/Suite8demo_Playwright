@@ -1,15 +1,11 @@
 const {Given, When, Then } = require('@cucumber/cucumber');
 const {POManager} = require('../../pageobjects/POManager.js');
-//const{POManager} = require('../../pageobjects_suite8demo/POManager.js');
-//const datasetQuote = JSON.parse(JSON.stringify(require('../../utils/data/quotesTestData.json')));
 const datasetDoc = JSON.parse(JSON.stringify(require('../../utils/data/documentsTestData.json')));
 const path = require('path');
 const writeExcelTest = require('../../pageobjects/writeExcelTest.js');
-//const filePathQuotes = path.join(process.cwd(), 'utils', 'downloads', 'Quotes.csv');
-//const filePathLI = path.join(process.cwd(), 'utils', 'downloads', 'LineItems.csv');
 const filePathDoc = path.join(process.cwd(), 'utils', 'downloads', 'IncomeDocument.xlsx');
 
-//Scenario 6 : Create Documents
+//Scenario 1 : Create Documents
 Given('D1 The user has logged into the application with valid username and password',{timeout:20000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
@@ -37,7 +33,7 @@ Then('Verify document is created successfully', {timeout:50000}, async function(
     await this.validationPage.verifyDocument(datasetDoc.fileName);    
 });
 //***************************************************************************************** */
-//Scenario 7 : Mandatory fields validation - File Name, Document Name, Revision
+//Scenario 2 : Mandatory fields validation - File Name, Document Name, Revision
 Given('D2 The user has logged into the application with valid username and password',{timeout:20000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();
@@ -59,7 +55,7 @@ Then ('Verify validation message is displayed for mandatory fields in Documents 
     await this.validationPage.documentsPage_MandatoryValidations(datasetDoc.msgFile,datasetDoc.msgDocName,datasetDoc.msgRevision);    
 });
 //************************************************************************ */
-//Scenario 8 : View Documents
+//Scenario 3 : View Documents
 Given('D3 The user has logged into the application with valid username and password',{timeout:50000}, async function(){
     this.loginPage = await this.poManager.getLoginPage();
     await this.loginPage.navigateURL();

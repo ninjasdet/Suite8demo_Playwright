@@ -246,6 +246,61 @@ class validationPage {
         expect(await this.page.locator('span[class*="uploaded-file-name"]').nth(1).getAttribute('title')).toContain(fileName);
 
     }
+
+        async quotes_VerifyPageTitleandLabel(pageTitle,pageLabel){
+        expect(await this.framePage.locator('.header-module-title').textContent()).toContain(pageTitle);
+        expect(await this.framePage.locator('.module-title-text-breadcrumbs-create').textContent()).toContain(pageLabel);
+    }
+
+    async quotes_VerifyTitleField(){
+        expect(await this.framePage.locator('#name').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifyQuoteNumField(){
+        expect(await this.framePage.locator('div[type="int"]').isVisible()).toBeTruthy();
+    }
+
+    async quotes_VerifyDateFieldLen(dateFieldLen){
+            expect(await this.framePage.locator('#expiration').getAttribute('maxlength')).toBe(dateFieldLen);
+    }
+
+    async quotes_VerifyApprovalStatusListValues(approvalStatusUI){
+        const approvalStatusVal = (await this.framePage.locator('#approval_status').textContent()).split("\n");
+        const statusValidation =  approvalStatusUI.split(",").every(val => approvalStatusVal.includes(val) );   
+        expect(statusValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyOpportunityField(){
+        expect(await this.framePage.locator('#opportunity').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifyQuoteStageListValues(quoteStageUI){
+        const quoteStageVal = (await this.framePage.locator('#stage').textContent()).split("\n");
+        const stageValidation = quoteStageUI.split(",").every(val => quoteStageVal.includes(val) );
+        expect(stageValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyInvoiceStatusListValues(invoiceStatusUI){
+        const invoiceStatusVal = (await this.framePage.locator('#invoice_status').textContent()).split("\n");
+        const invoiceValidation = invoiceStatusUI.split(",").every(val => invoiceStatusVal.includes(val));
+        expect(invoiceValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyPaymentTermsListValues(paymentTermsUI){
+        const paymentTermsVal = (await this.framePage.locator('#term').textContent()).split("\n");
+        const paymentTermValidation = paymentTermsUI.split(",").every(val => paymentTermsVal.includes(val));
+        expect(paymentTermValidation).toBeTruthy();
+    }
+
+    async quotes_VerifyApprovalIssuesField(){
+        expect(await this.framePage.locator('#approval_issue').isEditable()).toBeTruthy();
+    }
+
+    async quotes_VerifySaveCancelBtnStatus(){
+        expect(await this.framePage.locator('#SAVE').isEnabled()).toBeTruthy();
+        expect(await this.framePage.locator('#CANCEL').isEnabled()).toBeTruthy();
+    }
+
 }
 module.exports = {validationPage};
 
