@@ -1,7 +1,8 @@
 const {Given, When, Then ,setDefaultTimeout } = require('@cucumber/cucumber');
 const {loginPage} = require('../../pageobjects/loginPage.js');
 //const {POManager} = require('../../pageobjects/POManager.js');
-const datajson = JSON.parse(JSON.stringify(require('../../utils/data/datajson.js')));
+const datajson = JSON.parse(JSON.stringify(require('../../utils/data/loginTestData.json')));
+const datajson1 = JSON.parse(JSON.stringify(require('../../utils/data/InvalidLoginTestData.json')));
 const {validationPage} = require('../../pageobjects/validationPage.js');
 
  setDefaultTimeout(60 * 1000);
@@ -16,7 +17,7 @@ Given('The user is on the Login page',  async function () {
 
 When('The user enters valid username and  password and clicks on Login', async function () {
             this.loginPage = await this.poManager.getLoginPage();
-             await this.loginPage.loginApp(datajson.validUser.username, datajson.validUser.password);
+             await this.loginPage.loginApp(datajson.username, datajson.password);
          });
 
 Then('The user lands on Home page.',{timeout:20000},async function () {
@@ -35,7 +36,7 @@ Given('S1 The user is on the Login page', async function () {
 
 When('the user clicks on loginbutton by entering invalid username and invalid password', async function () {
            this.loginPage = await this.poManager.getLoginPage();
-            await this.loginPage.loginApp(datajson.invalidUser.username, datajson.invalidUser.password);
+            await this.loginPage.loginApp(datajson1.username, datajson1.password);
          });
 
 Then('the user should able to see errormessage {string}', async function (string) {
@@ -69,7 +70,7 @@ Then('the user should able to see errormessage {string} under usernametextbox an
          });  
 When('the user clicks on loginbutton by entering username without password', async function () {
            this.loginPage = await this.poManager.getLoginPage();
-             await this.loginPage.loginAppWithUsername(datajson.validUser.username);
+             await this.loginPage.loginAppWithUsername(datajson.username);
          });
          
 Then('the user should able to see errormessage {string} under passwordtextbox', async function (string) {
@@ -86,7 +87,7 @@ Given('S4 The user is on the Login page', async function () {
 
 When('the user clicks on loginbutton by entering password without username', async function () {
            this.loginPage = await this.poManager.getLoginPage();
-             await this.loginPage.loginAppWithPassword(datajson.validUser.password);
+             await this.loginPage.loginAppWithPassword(datajson.password);
          });
 
 Then('the user should able to see errormessage {string} under usernametextbox', async function (string) {
